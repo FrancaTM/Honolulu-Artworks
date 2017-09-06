@@ -6,6 +6,13 @@
 //  Copyright © 2017 0neTech. All rights reserved.
 //
 
+//https://www.raywenderlich.com/160517/mapkit-tutorial-getting-started
+
+//https://icons8.com
+//All the Icons You Need. Guaranteed.
+
+//http://www.iconarchive.com
+
 import UIKit
 
 @UIApplicationMain

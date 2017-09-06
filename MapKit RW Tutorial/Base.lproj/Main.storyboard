@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,70 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapKit_RW_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OPO-N4-39k">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </mapView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ag-pI-XPi">
+                                <rect key="frame" x="295" y="587" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Aeb-3V-z1e"/>
+                                    <constraint firstAttribute="width" secondItem="9Ag-pI-XPi" secondAttribute="height" multiplier="1:1" id="oIz-s5-We5"/>
+                                    <constraint firstAttribute="width" constant="64" id="wl3-63-ZMk"/>
+                                </constraints>
+                                <state key="normal" image="rw-logo-orange"/>
+                                <connections>
+                                    <action selector="rwLogoButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pyF-uq-dsG"/>
+                                </connections>
+                            </button>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rw-logo" translatesAutoresizingMaskIntoConstraints="NO" id="IQ5-ea-gai">
+                                <rect key="frame" x="24" y="579" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="B44-d0-Tvf"/>
+                                    <constraint firstAttribute="width" constant="64" id="CBY-3q-iRP"/>
+                                    <constraint firstAttribute="width" secondItem="IQ5-ea-gai" secondAttribute="height" multiplier="1:1" id="Liq-Rt-3eW"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <constraints>
+                            <constraint firstItem="OPO-N4-39k" firstAttribute="bottom" secondItem="ccP-Gr-DqQ" secondAttribute="bottom" id="74V-Rg-XZN"/>
+                            <constraint firstItem="9Ag-pI-XPi" firstAttribute="trailing" secondItem="ccP-Gr-DqQ" secondAttribute="trailing" constant="-16" id="8xt-8l-nz1"/>
+                            <constraint firstItem="OPO-N4-39k" firstAttribute="trailing" secondItem="ccP-Gr-DqQ" secondAttribute="trailing" id="JwP-kF-6P3"/>
+                            <constraint firstItem="OPO-N4-39k" firstAttribute="top" secondItem="ccP-Gr-DqQ" secondAttribute="top" id="Ko1-hs-BuH"/>
+                            <constraint firstItem="9Ag-pI-XPi" firstAttribute="bottom" secondItem="ccP-Gr-DqQ" secondAttribute="bottom" constant="-16" id="Wm2-pO-NBH"/>
+                            <constraint firstItem="IQ5-ea-gai" firstAttribute="leading" secondItem="ccP-Gr-DqQ" secondAttribute="leading" constant="24" id="jTt-7v-DCQ"/>
+                            <constraint firstItem="OPO-N4-39k" firstAttribute="leading" secondItem="ccP-Gr-DqQ" secondAttribute="leading" id="vxB-ci-2IF"/>
+                            <constraint firstItem="IQ5-ea-gai" firstAttribute="bottom" secondItem="ccP-Gr-DqQ" secondAttribute="bottom" constant="-24" id="zHE-6Y-f2f"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ccP-Gr-DqQ"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="IQ5-ea-gai"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="jTt-7v-DCQ"/>
+                                <exclude reference="zHE-6Y-f2f"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="OPO-N4-39k" id="dIl-z1-fBv"/>
+                        <outlet property="rwLogoButton" destination="9Ag-pI-XPi" id="pzK-NR-fkK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="5nL-lL-Um4"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="115.59220389805098"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="rw-logo" width="512" height="512"/>
+        <image name="rw-logo-orange" width="768" height="768"/>
+    </resources>
 </document>
